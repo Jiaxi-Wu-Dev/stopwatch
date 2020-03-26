@@ -2,10 +2,21 @@
 
 import React, { Component } from 'react';
 
+
 class Pause extends Component {
-    state = {  }
+    state = { 
+
+     }
+
+     pause(){
+
+     }
+  
+
     render() { 
-        return (  );
+        return (<div>
+            <button className="pause" onClick={this.pause}></button>
+        </div>);
     }
 }
  
