@@ -3,12 +3,10 @@
 
 import React from "react";
 import "./App.css";
-import Pause from "./components/Pause";
 
 class App extends React.Component {
   constructor() {
     super();
-    // Don't call this.setState() here!
     this.state = {
       time: 0,
       timer: 0,
@@ -16,26 +14,35 @@ class App extends React.Component {
     };
   }
 
+  // increments the counter
   incrementOne = () => {
     this.setState({
       time: setInterval(() => {
-        this.setState({ timer: this.state.timer + 1, 
-                        start:true});
+        this.setState({ timer: this.state.timer + 1, start: true });
       }, 1000)
     });
-  }
-
+  };
+  // pauses the counter
   pauseCounter = () => {
-    this.setState({start: true})
+    // set state = true and then toggle it on and off to pause the counter
+    this.setState({ start: true });
     if ((this.state.start = true)) {
-    this.state.start = false;
-    clearTimeout(this.state.time);
-  }
-}
-
+      this.state.start = false;
+      clearTimeout(this.state.time);
+      // trying to make pause start and stop the counter, so far pressing start does the trick
+    } else {
+      this.setState({
+        time: setInterval(() => {
+          this.setState({ timer: this.state.timer + 1, start: true });
+        }, 1000)
+      });
+    }
+  };
+  // resets the counter
+  // set timer back to zero
   resetCounter = () => {
-    
-  }
+    this.setState({ timer: 0 });
+  };
 
   render() {
     return (
@@ -47,8 +54,13 @@ class App extends React.Component {
           </button>
         </div>
         <div>
-          <button className="start" onClick={this.pauseCounter}>
-            Pause
+          <button className="pause" onClick={this.pauseCounter}>
+            PAUSE
+          </button>
+        </div>
+        <div>
+          <button className="reset" onClick={this.resetCounter}>
+            RESET
           </button>
         </div>
       </div>
