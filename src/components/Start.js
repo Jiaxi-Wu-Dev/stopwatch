@@ -8,25 +8,34 @@ Step3 Show the incremental Number on screen
 Step3b Show a number on screen - DONE
 Looking at https://www.youtube.com/watch?v=4ORZ1GmjaMc, learned more about state and how it works*/
 
-
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Start extends Component {
-    
-    constructor(){
-        super()
-        this.state = {
-            timer: 0
-        }
-    }
-    
+  constructor() {
+    super();
+    this.state = {
+      timer: 0
+    };
+  }
 
-    render() { 
-        return (<div>
-            <h1> {this.state.timer} </h1>
-            <button className="start" onClick={() => this.startTimer()}>START</button>
-        </div>  );
-    }
+  incrementOne = () => {
+    this.setState({
+      timer: setInterval(() => {
+        this.setState({ timer: this.state.timer + 1 });
+      }, 1000)
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <h1> {this.state.timer} </h1>
+        <button className="start" onClick={() => this.incrementOne()}>
+          START
+        </button>
+      </div>
+    );
+  }
 }
- 
+
 export default Start;
