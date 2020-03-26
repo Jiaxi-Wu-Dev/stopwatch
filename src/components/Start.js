@@ -11,21 +11,6 @@ Looking at https://www.youtube.com/watch?v=4ORZ1GmjaMc, learned more about state
 
 import React, { Component } from 'react';
 
-/* let initialNumber = 0;
-let buttonClicked = null;
-let keepTime
-
-function incrementTimer() {
-  let secondsPlus = initialNumber++;
-  console.log(secondsPlus);
-}
-
-function startTimer() {
-    keepTime = setInterval(incrementTimer, 1000);
-    buttonClicked = true;
-    console.log(buttonClicked);
-  }
- */
 class Start extends Component {
     
     constructor(){
@@ -35,11 +20,6 @@ class Start extends Component {
         }
     }
     
-   /*  startTimer() {
-        this.setState({
-            timer: 
-        })
-      } */
 
     render() { 
         return (<div>
