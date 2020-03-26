@@ -1,23 +1,22 @@
 // Create a pause component that pauses the count from start.js
 
-import React, { Component } from 'react';
-
+import React, { Component } from "react";
 
 class Pause extends Component {
-    state = { 
+  state = {};
 
-     }
+  pause() {}
 
-     pause(){
-
-     }
-  
-
-    render() { 
-        return (<div>
-            <button className="pause" onClick={this.pause}></button>
-        </div>);
-    }
+  render() {
+    return (
+      <div>
+        <button className="pause" onClick={this.pause}>
+          {" "}
+          PAUSE{" "}
+        </button>
+      </div>
+    );
+  }
 }
- 
+
 export default Pause;
